@@ -10,5 +10,13 @@
     "source.fixAll": true
   },
   "css.validate": true,
-  "editor.quickSuggestions": { "strings": true }
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }
