@@ -4,7 +4,7 @@ export default function Reachout() {
   return (
     <>
       <div className={styles.lastupdate}>
-        <div style={{ fontSize: "1.73vw" }}>Reach Out</div>
+        <div className={styles.reachOut}>Reach Out</div>
         <hr className={styles.reachhr} />
       </div>
       <div style={{ display: "flex", justifyContent: "center", marginTop: "2vw" }}>
