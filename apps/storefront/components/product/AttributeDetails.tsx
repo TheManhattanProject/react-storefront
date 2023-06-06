@@ -3,7 +3,7 @@ import { useIntl } from "react-intl";
 import { getProductAttributes } from "@/lib/product";
 import { translate } from "@/lib/translations";
 import { ProductDetailsFragment, ProductVariantDetailsFragment } from "@/saleor/api";
-
+import styles from "../../components/product/ProductGallery.module.css";
 import { messages } from "../translations";
 
 export interface AttributeDetailsProps {
@@ -18,14 +18,14 @@ export function AttributeDetails({ product, selectedVariant }: AttributeDetailsP
     return null;
   }
   return (
-    <div>
+    <div className={styles.aboutHeading}>
       <p className="text-lg mt-2 font-medium text-gray-500">
         {t.formatMessage(messages.attributes)}
       </p>
       <div>
         {attributes.map((attribute) => (
           <div key={attribute.attribute.id} className="grid grid-cols-2">
-            <div>
+            <div className={styles.about}>
               <p className="text-base">{translate(attribute.attribute, "name")}</p>
             </div>
             <div>
@@ -34,7 +34,7 @@ export function AttributeDetails({ product, selectedVariant }: AttributeDetailsP
                   return null;
                 }
                 return (
-                  <div key={value.id}>
+                  <div className={styles.about} key={value.id}>
                     <p className="text-base">
                       {translate(value, "name")}
                       {attribute.values.length !== index + 1 && <div>{" | "}</div>}

@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Custom404 from "pages/404";
 import React, { ReactElement, useState } from "react";
 import { useIntl } from "react-intl";
-
+import styles from "../../../../components/product/ProductGallery.module.css";
 import { Layout, RichText, VariantSelector } from "@/components";
 import { useRegions } from "@/components/RegionsProvider";
 import { AttributeDetails } from "@/components/product/AttributeDetails";
@@ -164,25 +164,29 @@ function ProductPage({ product }: InferGetStaticPropsType<typeof getStaticProps>
       <ProductPageSeo product={product} />
       <main
         className={clsx(
-          "grid grid-cols-1 gap-[3rem] max-h-full overflow-auto md:overflow-hidden container pt-8 px-8 md:grid-cols-3"
+          "grid grid-cols-1 gap-[3rem] max-h-full overflow-auto md:overflow-hidden container pt-8 px-8 md:grid-cols-12"
         )}
       >
-        <div className="col-span-2">
+        <div className="col-span-7">
           <ProductGallery product={product} selectedVariant={selectedVariant} />
         </div>
-        <div className="space-y-5 mt-10 md:mt-0">
-          <div>
+        <div className="space-y-5 mt-10 md:mt-0 col-span-5">
+          <div style={{ position: "relative" }}>
+            <div className={styles.verticalDivide}></div>
             <h1
               className="text-4xl font-bold tracking-tight text-gray-800"
               data-testid="productName"
             >
-              {translate(product, "name")}
+              <div className={styles.productDispName}>{translate(product, "name")}</div>
             </h1>
-            {shouldDisplayPrice && (
-              <h2 className="text-xl font-bold tracking-tight text-gray-800">
-                {formatPrice(price)}
-              </h2>
-            )}
+            {
+              // shouldDisplayPrice &&
+              <div className={styles.price}>
+                <h2 className="text-xl font-bold tracking-tight">
+                  {formatPrice(selectedVariant?.pricing?.price?.gross)}
+                </h2>
+              </div>
+            }
             {!!product.category?.slug && (
               <Link
                 href={paths.category._slug(product?.category?.slug).$url()}
@@ -191,11 +195,28 @@ function ProductPage({ product }: InferGetStaticPropsType<typeof getStaticProps>
               >
                 <a>
                   <p className="text-md mt-2 font-medium text-gray-600 cursor-pointer">
-                    {translate(product.category, "name")}
+                    <div className={styles.prodCateg}>{translate(product.category, "name")}</div>
                   </p>
                 </a>
               </Link>
             )}
+          </div>
+          {description && (
+            <div className="space-y-6">
+              <div className={styles.about}>
+                <div className={styles.aboutHeading}>About</div>
+                <hr />
+                <RichText jsonStringData={description} />
+              </div>
+            </div>
+          )}
+
+          <AttributeDetails product={product} selectedVariant={selectedVariant} />
+
+          <div className={styles.itemLeftOuter}>
+            <div className={styles.itemLeft}>Items Left :</div>
+            <div className={styles.itemLeftNumber}>20</div>
+            <div className={styles.itemLeftNumber2}>/ 50</div>
           </div>
 
           <VariantSelector product={product} selectedVariantID={selectedVariantID} />
@@ -228,14 +249,6 @@ function ProductPage({ product }: InferGetStaticPropsType<typeof getStaticProps>
           )}
 
           {!!addToCartError && <p>{addToCartError}</p>}
-
-          {description && (
-            <div className="space-y-6">
-              <RichText jsonStringData={description} />
-            </div>
-          )}
-
-          <AttributeDetails product={product} selectedVariant={selectedVariant} />
         </div>
       </main>
     </>

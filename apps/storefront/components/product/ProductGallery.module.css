@@ -1,0 +1,169 @@
+@font-face {
+  font-family: "Avenir Next Bold";
+  src: url("../../public/fonts/AvenirNextLTPro-Bold.otf");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../public/fonts/AvenirNextLTPro-Regular.otf");
+  font-style: normal;
+  font-display: swap;
+}
+
+.outer {
+  position: relative;
+}
+
+.productName {
+  font-family: "Avenir Next Bold";
+  font-style: italic;
+  font-weight: 900;
+  font-size: 5.5vw;
+  line-height: 137%;
+  text-align: center;
+  /* identical to box height */
+  color: #e3e3e3;
+}
+
+.productName:nth-child(1) {
+  z-index: -1;
+  position: absolute;
+  color: #f4f4f4;
+  left: 50%;
+  top: -2.5%;
+  width: 100%;
+  transform: translateX(-50%);
+}
+
+.productName:nth-child(2) {
+  position: absolute;
+  color: #0a0a0a;
+  left: 50%;
+  top: 2.5%;
+  width: 100%;
+  transform: translateX(-50%);
+}
+
+.category {
+  position: absolute;
+  bottom: 55%;
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.05vw;
+  line-height: 137%;
+  /* identical to box height */
+  color: rgba(10, 10, 10, 0.6);
+  left: -30vw;
+  transform: rotate(-90deg);
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.categoryIndividual {
+  width: max-content;
+}
+
+.productDispName {
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.32vw;
+  line-height: 137%;
+  color: #0a0a0a;
+}
+
+.prodCateg {
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.05vw;
+  line-height: 137%;
+  /* identical to box height */
+  color: #9e9e9e;
+}
+
+.verticalDivide {
+  position: absolute;
+  top: 1.7vw;
+  left: -2.5vw;
+  width: 4vw;
+  border: 2px solid #1a1a1a;
+  transform: rotate(90deg);
+}
+
+.price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.1vw;
+  line-height: 137%;
+  /* identical to box height */
+  color: #156aeb;
+}
+
+.about {
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+  line-height: 135%;
+
+  color: #0a0a0a;
+}
+
+.aboutHeading {
+  margin-top: 2vw;
+  font-family: "Avenir Next";
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1vw;
+  line-height: 135%;
+
+  color: #0a0a0a;
+}
+
+.itemLeftOuter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.itemLeft {
+  font-family: "Avenir Next";
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1vw;
+  line-height: 135%;
+  color: #373737;
+}
+
+.itemLeftNumber {
+  font-family: "Avenir Next Bold";
+  font-style: italic;
+  font-weight: 700;
+  font-size: 2.38vw;
+  line-height: 135%;
+  margin-left: 15px;
+
+  color: #e53434;
+}
+
+.itemLeftNumber2 {
+  font-family: "Avenir Next";
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.58vw;
+  line-height: 135%;
+  /* identical to box height */
+  color: #202020;
+  margin-left: 10px;
+}

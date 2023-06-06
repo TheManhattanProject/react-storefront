@@ -2,7 +2,7 @@ import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-
+// import styles from './ProductGallery.module.css'
 import { usePaths } from "@/lib/paths";
 import { translate } from "@/lib/translations";
 import { ProductDetailsFragment } from "@/saleor/api";
@@ -41,9 +41,18 @@ export function VariantSelector({ product, selectedVariantID }: VariantSelectorP
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full d-flex flex-row">
+      <div>hello</div>
       <RadioGroup value={selectedVariant} onChange={onChange}>
-        <div className="space-y-4">
+        <div
+          className="space-y-4"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "baseline",
+          }}
+        >
           {variants.map((variant) => (
             <RadioGroup.Option
               key={variant.id}
@@ -55,17 +64,21 @@ export function VariantSelector({ product, selectedVariantID }: VariantSelectorP
               {({ checked }) => (
                 <div
                   className={clsx(
-                    "bg-white w-full h-full relative cursor-pointer object-contain border-2",
-                    checked && "border-brand",
-                    !checked && "hover:border-main border-main-2"
+                    "bg-white w-full h-full relative cursor-pointer object-contain",
+                    checked && "border-2 border-brand",
+                    !checked && ""
                   )}
                 >
                   <RadioGroup.Label as="div" className="w-full justify-between p-4">
                     <div className="flex flex-row gap-2 w-full font-semibold text-md">
-                      <div className="grow" data-testid={`variantOf${variant.name}`}>
+                      <div
+                        className="grow"
+                        style={{ textAlign: "center" }}
+                        data-testid={`variantOf${variant.name}`}
+                      >
                         {translate(variant, "name")}
                       </div>
-                      <div>{formatPrice(variant.pricing?.price?.gross)}</div>
+                      {/* <div>{formatPrice(variant.pricing?.price?.gross)}</div> */}
                     </div>
                   </RadioGroup.Label>
                 </div>
