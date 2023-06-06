@@ -39,6 +39,10 @@ export function ProductGallery({ product, selectedVariant }: ProductGalleryProps
           <div className={styles.categoryIndividual}>{translate(product.category!, "name")}</div>
           <div className={styles.categoryIndividual}>{translate(product.category!, "name")}</div>
           <div className={styles.categoryIndividual}>{translate(product.category!, "name")}</div>
+          <div className={styles.categoryIndividual}>{translate(product.category!, "name")}</div>
+          <div className={styles.categoryIndividual}>{translate(product.category!, "name")}</div>
+          <div className={styles.categoryIndividual}>{translate(product.category!, "name")}</div>
+          <div className={styles.categoryIndividual}>{translate(product.category!, "name")}</div>
         </div>
         <div
           className={clsx(

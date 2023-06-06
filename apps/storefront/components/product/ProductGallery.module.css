@@ -56,8 +56,7 @@
   line-height: 137%;
   /* identical to box height */
   color: rgba(10, 10, 10, 0.6);
-  left: -30vw;
-  transform: rotate(-90deg);
+  transform: translateX(-50%) rotate(-90deg);
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -166,4 +165,35 @@
   /* identical to box height */
   color: #202020;
   margin-left: 10px;
+}
+
+.sizeOuter {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.size {
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.05vw;
+  line-height: 135%;
+  /* identical to box height */
+
+  color: #0a0a0a;
+}
+
+.sizeChart {
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.66vw;
+  line-height: 140%;
+  /* identical to box height */
+
+  text-decoration-line: underline;
+
+  color: #0a0a0a;
 }

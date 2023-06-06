@@ -2,7 +2,7 @@ import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-// import styles from './ProductGallery.module.css'
+import styles from "./ProductGallery.module.css";
 import { usePaths } from "@/lib/paths";
 import { translate } from "@/lib/translations";
 import { ProductDetailsFragment } from "@/saleor/api";
@@ -41,8 +41,11 @@ export function VariantSelector({ product, selectedVariantID }: VariantSelectorP
   };
 
   return (
-    <div className="w-full d-flex flex-row">
-      <div>hello</div>
+    <div className="w-full" style={{ display: "flex" }}>
+      <div className={styles.sizeOuter}>
+        <div className={styles.size}>Choose A Size</div>
+        <div className={styles.sizeChart}>Size Chart</div>
+      </div>
       <RadioGroup value={selectedVariant} onChange={onChange}>
         <div
           className="space-y-4"
@@ -65,15 +68,16 @@ export function VariantSelector({ product, selectedVariantID }: VariantSelectorP
                 <div
                   className={clsx(
                     "bg-white w-full h-full relative cursor-pointer object-contain",
-                    checked && "border-2 border-brand",
-                    !checked && ""
+                    checked && "underline decoration-blue-700 underline-offset-8",
+                    !checked &&
+                      "no-underline hover:underline decoration-blue-700 underline-offset-8"
                   )}
                 >
                   <RadioGroup.Label as="div" className="w-full justify-between p-4">
                     <div className="flex flex-row gap-2 w-full font-semibold text-md">
                       <div
                         className="grow"
-                        style={{ textAlign: "center" }}
+                        style={{ textAlign: "center", fontFamily: "Avenir Next" }}
                         data-testid={`variantOf${variant.name}`}
                       >
                         {translate(variant, "name")}

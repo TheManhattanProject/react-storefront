@@ -221,14 +221,24 @@ function ProductPage({ product }: InferGetStaticPropsType<typeof getStaticProps>
 
           <VariantSelector product={product} selectedVariantID={selectedVariantID} />
 
+          <hr />
+
           <button
             onClick={onAddToCart}
             type="submit"
             disabled={isAddToCartButtonDisabled}
             className={clsx(
               "w-full py-3 px-8 flex items-center justify-center text-base bg-action-1 text-white disabled:bg-disabled hover:bg-white border-2 border-transparent  focus:outline-none",
-              !isAddToCartButtonDisabled && "hover:border-action-1 hover:text-action-1"
+              !isAddToCartButtonDisabled && "hover:border-action-1"
             )}
+            style={{
+              backgroundColor: "#E63434",
+              fontFamily: "Avenir Next Bold",
+              lineHeight: "135%",
+              fontSize: "1.32vw",
+              fontStyle: "italic",
+              borderRadius: "12px",
+            }}
             data-testid="addToCartButton"
           >
             {loadingAddToCheckout
@@ -237,13 +247,17 @@ function ProductPage({ product }: InferGetStaticPropsType<typeof getStaticProps>
           </button>
 
           {!selectedVariant && (
-            <p className="text-base text-yellow-600">
+            <p style={{ fontFamily: "Avenir Next" }} className="text-base text-yellow-600">
               {t.formatMessage(messages.variantNotChosen)}
             </p>
           )}
 
           {selectedVariant?.quantityAvailable === 0 && (
-            <p className="text-base text-yellow-600" data-testid="soldOut">
+            <p
+              style={{ fontFamily: "Avenir Next" }}
+              className="text-base text-yellow-600"
+              data-testid="soldOut"
+            >
               {t.formatMessage(messages.soldOut)}
             </p>
           )}
